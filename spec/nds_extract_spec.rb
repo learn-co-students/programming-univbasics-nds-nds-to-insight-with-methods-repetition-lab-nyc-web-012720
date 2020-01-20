@@ -1,29 +1,8 @@
 require 'spec_helper'
 
-describe 'list of directors' do
-  it 'correctly extracts :name keys out of an AoH where'  do
-    stooges = [{:name => "Larry"}, {:name => "Curly"}, {:name => "Moe"}, {:name => "Iggy"}]
-    expect(list_of_directors(stooges)).to eq(["Larry", "Curly", "Moe", "Iggy"])
-  end
-end
-
-describe 'total_gross' do
-  it 'correctly totals the total gross' do
-    expect(total_gross(directors_database)).to eq(10355501925)
-  end
-end
-
-describe 'gross_for_director method' do
-  it "correctly totals the worldwide earnings for a director" do
-    first_director_name = directors_database.first.values.first
-    first_director_hash = directors_database.find{ |x| x[:name] == first_director_name }
-    expect(gross_for_director(first_director_hash)).to eq(1357566430)
-  end
-end
-
 describe 'The directors_database method can be processed by the directors_totals method' do
   it 'which returns a Hash describing director to total' do
-    expect(directors_totals({})).to be_a(Hash)
+    expect(directors_totals(directors_database)).to be_kind_of(Hash)
   end
 
   describe "and correctly totals the directors' totals" do
