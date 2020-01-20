@@ -26,6 +26,13 @@ end
 
 def list_of_directors(source)
   # Write this implementation
+  list = []
+  index = 0
+  while index < source.length do
+    list << source[index][:name] #note that variable 'index' stays blue (an integer would be orange in my IDE)
+    index += 1
+  end
+  list # returns an array full of director names
 end
 
 def total_gross(source)
@@ -38,6 +45,22 @@ def total_gross(source)
   # Visit each key (i.e. director name), look up the value in the hash
   # returned by directors_totals, and add it to a running total. When done,
   # return the total
+  total = 0
+  index = 0
+    while index < list_of_directors(source).length do
+      total += gross_for_director(source[index])
+      index += 1
+    end
+    total
 end
 
 
+=begin REFERENCES FOR EXPLORATION
+
+puts directors_totals(directors_database)
+#puts directors_database[0][:name]
+puts list_of_directors(directors_database)
+puts gross_for_director(directors_database[0]) # Spielberg's total
+puts gross_for_director(directors_database[1]) # 2nd total...
+
+=end 
