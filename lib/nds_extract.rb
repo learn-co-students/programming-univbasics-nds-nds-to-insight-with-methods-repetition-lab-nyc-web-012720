@@ -45,25 +45,34 @@ def total_gross(source)
   # returned by directors_totals, and add it to a running total. When done,
   # return the total
   
-  grand_total = 0
-  counter = 0
-  hash_to_use = directors_totals(source)
-  while counter < hash_to_use.length do 
+  # grand_total = 0
+  # counter = 0
+  # hash_to_use = directors_totals(source)
+  # while counter < hash_to_use.length do 
     
-    array = list_of_directors(source)
-    inner_counter = 0
-    while inner_counter < array.length do
+  #   array = list_of_directors(source)
+  #   inner_counter = 0
+  #   while inner_counter < array.length do
       
-      key = array[inner_counter]
-      grand_total += hash_to_use[key]
-      inner_counter += 1
-      counter += 1
+  #     key = array[inner_counter]
+  #     grand_total += hash_to_use[key]
+  #     inner_counter += 1
+  #     counter += 1
     
-    end
+  #   end
           
+  # end
+  # grand_total
+
+  grand_total = 0
+  hash = directors_totals(source)
+  array = list_of_directors(source)
+  counter = 0
+  
+  while counter < hash.length do 
+    key = array[counter]
+    grand_total += hash[key]
+    counter += 1  
   end
   grand_total
-
 end
-
-
